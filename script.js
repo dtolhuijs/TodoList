@@ -45,6 +45,17 @@ function submitTodo() {
   // ready to create new todos
 
   function createTodo(title) {
+  function submitTodo() {
+    var inputField = document.getElementById("new-todo");
+    var newTodoTitle = inputField.value;
+    createTodo(newTodoTitle);
+
+    // reset the value of the inputField to make it empty and
+    // ready to create new todos
+    inputField.value = null;
+
+    updateCounters();
+    function createTodo(title) {
     // create a list item
     var listItem = document.createElement("li");
     listItem.className = "todo";
@@ -96,4 +107,13 @@ function cleanUpDoneTodos() {
 
 
   updateCounters();
+    updateCounters();
+  }
+
+  // Every todo has it's own id so we can add that to the corresponding label's
+  // "for" attribute to make sure that when we click the label, the checkbox
+  // toggles
+  function nextTodoId() {
+    return document.getElementsByClassName("todo").length + 1;
+  }
 }
