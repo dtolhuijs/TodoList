@@ -12,6 +12,8 @@ function updateCounters() {
   totalCount.innerHTML = totalTodos;
 }
 
+updateCounters();
+
 function updateCounters() {
   // Total number of todos
   var totalCount = document.getElementById('total-count');
@@ -30,3 +32,17 @@ function updateCounters() {
 }
 
 updateCounters();
+
+function toggleDone() {
+  var checkbox = this;
+
+  // check the checked status of the checkbox
+  if (checkbox.checked) {
+    // the "completed" class should be set on the parent element, the <li>
+    checkbox.parentElement.className = "todo completed";
+  } else {
+    checkbox.parentElement.className = "todo";
+  }
+
+  updateCounters();
+}
